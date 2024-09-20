@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "MultiThreadFileAccess": {
+      "commandName": "Project"
+    },
+    "Container (Dockerfile)": {
+      "commandName": "Docker"
+    }
+  }
+}
