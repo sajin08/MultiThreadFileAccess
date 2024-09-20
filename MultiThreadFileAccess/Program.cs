@@ -8,7 +8,7 @@ class Program
     private static readonly string fileName = "log.txt";
     private static int counter = 0;
 
-    static void Main(string[] args)
+    static async Task Main(string[] args)
     {
         if (!Directory.Exists(fileDirectory))
             Directory.CreateDirectory(fileDirectory);
@@ -16,18 +16,22 @@ class Program
         {
             fileStream.WriteLine($"{counter++}, 0, {DateTime.Now:HH:MM:ss.mmm}");
         }
+        var tasksToExecuteInParallel = new List<Task>();
+
         // Create and start multiple threads
         for (int i = 0; i < 10; i++)
         {
-            Thread thread = new(WriteToFile);
-            thread.Start(thread.ManagedThreadId);
+            tasksToExecuteInParallel.Add(Task.Run(() => WriteToFile()));
         }
+
+        await Task.WhenAll(tasksToExecuteInParallel);
 
         Console.ReadLine();
     }
 
-    static void WriteToFile(object threadId)
+    static void WriteToFile()
     {
+        var threadId = Thread.CurrentThread.ManagedThreadId;
         try
         {
             for (int i = 0; i < 10; i++)
