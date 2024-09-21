@@ -4,7 +4,7 @@ on:
     workflow_dispatch:
     push:
       branches:
-        - 'Upgrade_To_Interfaces_And_Services'
+        - 'master'
 
 jobs:
   docker:
