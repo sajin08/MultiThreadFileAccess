@@ -36,7 +36,7 @@ class Program
         }
         finally
         {
-            Console.WriteLine("Execution completed. Press a key");
+            Console.WriteLine("Execution completed. Press Enter");
             Console.ReadLine();
         }
     }
