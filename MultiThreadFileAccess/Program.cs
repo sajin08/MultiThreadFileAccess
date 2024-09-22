@@ -32,6 +32,7 @@ class Program
         await Task.WhenAll(tasksToExecuteInParallel);
 
         //Pause for user input to exit application
+        Console.WriteLine("Please press enter to exit.");
         Console.ReadLine();
     }
 
