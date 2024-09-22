@@ -6,7 +6,7 @@ class Program
     //Initialized local variables for the application
     private static readonly object fileLock = new object();
     private static readonly string fileDirectory = "log/";
-    private static readonly string fileName = "log.txt";
+    private static readonly string fileName = "out.txt";
     private static int counter = 0;
 
     static async Task Main(string[] args)
