@@ -25,7 +25,7 @@ namespace MultiThreadFileAccess.Services
                     Directory.CreateDirectory(fileDirectory);
                 using (var fileStream = File.CreateText(fileDirectory + fileName))
                 {
-                    fileStream.WriteLine($"{counter++}, 0, {DateTime.Now:HH:MM:ss.mmm}");
+                    fileStream.WriteLine($"{counter++}, 0, {DateTime.Now:HH:MM:ss.fff}");
                 }
             }
             catch (Exception ex)
@@ -45,7 +45,7 @@ namespace MultiThreadFileAccess.Services
                 {
                     using (StreamWriter writer = new StreamWriter(fileDirectory + fileName, true))
                     {
-                        writer.WriteLine($"{counter++}, {Thread.CurrentThread.ManagedThreadId}, {DateTime.Now:HH:MM:ss.mmm}");
+                        writer.WriteLine($"{counter++}, {Thread.CurrentThread.ManagedThreadId}, {DateTime.Now:HH:MM:ss.fff}");
                     }
                 }
             }
